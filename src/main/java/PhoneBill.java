@@ -1,27 +1,16 @@
 public class PhoneBill{
 
     double total;
-    double callCost;
-    double smsCost;
-    double dataCost;
 
-    public double accept(BillAction billAction){
-        if(billAction.equals(smsCost)){
-            smsCost += total;
-        }
-        else if(billAction.equals(dataCost)){
-            dataCost += total;
-        }
-        else if(billAction.equals(callCost)){
-            callCost +=total;
-        }
+
+    public void accept(BillAction billAction){
+        total += billAction.totalCost();
+    }
+
+    public double total(){
         return total;
     }
 
-    
-//    public double total(){
-//        return total;
-//    }
 
     public static void main(String[] args) {
         PhoneBill phoneBill = new PhoneBill();
@@ -33,10 +22,10 @@ public class PhoneBill{
         phoneBill.accept(smsing);
         phoneBill.accept(streaming);
 
-        System.out.println("phonecall: "+phoneCall.totalCost());
-        System.out.println("sms: "+smsing.totalCost());
-        System.out.println("data: "+streaming.totalCost());
-//        System.out.println(phoneBill.total(smsing));
+        System.out.println("phonecall: R"+phoneCall.totalCost());
+        System.out.println("sms: R"+smsing.totalCost());
+        System.out.println("data: R"+streaming.totalCost());
+        System.out.println("total bill: R"+phoneBill.total());
 
     }
 

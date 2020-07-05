@@ -50,17 +50,18 @@ class PhoneBillTest {
 
 
     @Test
-    public void shouldGiveTotalBillForEachInstance(){
+    public void shouldGiveTotalBill(){
         PhoneBill phoneBill = new PhoneBill();
         BillAction call = new PhoneCall(2.45);
+        BillAction anotherCall = new PhoneCall(20.45);
         BillAction sms = new SMSBundle(2, 4);
         BillAction data = new DataBundle(450);
 
         phoneBill.accept(call);
+        phoneBill.accept(anotherCall);
         phoneBill.accept(sms);
         phoneBill.accept(data);
 
-//        trying to get phoneBill total ==> output = 0.0
-//        assertEquals(2.45 ,phoneBill.total());
+        assertEquals(27.65 ,phoneBill.total());
     }
 }
