@@ -64,4 +64,29 @@ class PhoneBillTest {
 
         assertEquals(27.65 ,phoneBill.total());
     }
+
+    @Test
+    public void shouldGiveAnyBillTotal(){
+        PhoneBill phoneBill = new PhoneBill();
+        BillAction call = new PhoneCall(3.50);
+        BillAction sms = new SMSBundle(2, 1.22);
+        BillAction data = new DataBundle(1000);
+
+        phoneBill.accept(call);
+        phoneBill.accept(call);
+        phoneBill.accept(call);
+        phoneBill.accept(call);
+        phoneBill.accept(call);
+        phoneBill.accept(call);
+        phoneBill.accept(call);
+        phoneBill.accept(sms);
+        phoneBill.accept(sms);
+        phoneBill.accept(data);
+        phoneBill.accept(data);
+        phoneBill.accept(data);
+        phoneBill.accept(data);
+        phoneBill.accept(data);
+
+        assertEquals(30, phoneBill.total());
+    }
 }
