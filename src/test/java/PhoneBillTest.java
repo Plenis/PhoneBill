@@ -1,3 +1,4 @@
+
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -27,7 +28,7 @@ class PhoneBillTest {
         DataBundle dataBundle = new DataBundle(400);
 
         phoneBill.accept(dataBundle);
-        assertEquals(0.75, dataBundle.totalCost());
+        assertEquals(300, dataBundle.totalCost());
     }
 
     @Test
@@ -36,7 +37,7 @@ class PhoneBillTest {
         DataBundle dataBundle = new DataBundle(600);
 
         phoneBill.accept(dataBundle);
-        assertEquals(0.55, dataBundle.totalCost());
+        assertEquals(330, dataBundle.totalCost());
     }
 
     @Test
@@ -45,7 +46,9 @@ class PhoneBillTest {
         DataBundle dataBundle = new DataBundle(12);
 
         phoneBill.accept(dataBundle);
-        assertEquals(0.35, dataBundle.totalCost());
+        phoneBill.accept(dataBundle);
+        phoneBill.accept(dataBundle);
+        assertEquals(9, dataBundle.totalCost());
     }
 
 
@@ -62,7 +65,7 @@ class PhoneBillTest {
         phoneBill.accept(sms);
         phoneBill.accept(data);
 
-        assertEquals(27.65 ,phoneBill.total());
+        assertEquals(364 ,phoneBill.total());
     }
 
     @Test
@@ -82,11 +85,8 @@ class PhoneBillTest {
         phoneBill.accept(sms);
         phoneBill.accept(sms);
         phoneBill.accept(data);
-        phoneBill.accept(data);
-        phoneBill.accept(data);
-        phoneBill.accept(data);
-        phoneBill.accept(data);
 
-        assertEquals(30, phoneBill.total());
+
+        assertEquals(577, phoneBill.total());
     }
 }

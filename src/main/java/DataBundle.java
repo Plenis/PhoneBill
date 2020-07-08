@@ -1,25 +1,25 @@
 public class DataBundle implements BillAction{
 
-    private double dataPrice;
+    private double megabyte;
+    double dataPrice;
 
     public DataBundle(double megabyte){
-        if(megabyte > 1000){
-            dataPrice = 0.35;
+        this.megabyte = megabyte;
+        if(this.megabyte > 1000){
+            dataPrice = this.megabyte * 0.35;
         }
-        else if(megabyte > 500){
-            dataPrice = 0.55;
+        else if(this.megabyte > 500){
+            dataPrice = this.megabyte * 0.55;
         }
-        else if(megabyte < 500){
-            dataPrice = 0.75;
+        else if(this.megabyte < 500){
+            dataPrice = this.megabyte * 0.75;
         }
     }
 
     @Override
     public double totalCost() {
-       return getDataPrice();
+       return dataPrice;
     }
 
-    public double getDataPrice() {
-        return dataPrice++;
-    }
+
 }

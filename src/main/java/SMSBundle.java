@@ -9,10 +9,10 @@ public class SMSBundle implements BillAction{
     }
     @Override
     public double totalCost() {
-        return getSmsPrice();
+        return smsPrice;
     }
 
-    public double getSmsPrice() {
-        return smsPrice++;
-    }
+//    public double getSmsPrice() {
+//        return smsPrice++;
+//    }
 }

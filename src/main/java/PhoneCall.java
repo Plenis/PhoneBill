@@ -7,10 +7,10 @@ public class PhoneCall implements BillAction{
     }
     @Override
     public double totalCost() {
-        return getCallPrice();
+        return callPrice;
     }
 
-    public double getCallPrice() {
-        return callPrice++;
-    }
+//    public double getCallPrice() {
+//        return callPrice;
+//    }
 }
