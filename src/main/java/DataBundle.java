@@ -3,7 +3,7 @@ public class DataBundle implements BillAction{
     private double dataPrice;
 
     public DataBundle(double megabyte){
-        if(megabyte < 100){
+        if(megabyte > 1000){
             dataPrice = 0.35;
         }
         else if(megabyte > 500){
@@ -16,6 +16,10 @@ public class DataBundle implements BillAction{
 
     @Override
     public double totalCost() {
-        return dataPrice;
+       return getDataPrice();
+    }
+
+    public double getDataPrice() {
+        return dataPrice++;
     }
 }

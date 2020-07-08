@@ -5,10 +5,14 @@ public class SMSBundle implements BillAction{
 
     public SMSBundle(int qty, double smsPrice){
         this.qty = qty;
-        this.smsPrice = smsPrice;
+        this.smsPrice += smsPrice;
     }
     @Override
     public double totalCost() {
-        return smsPrice;
+        return getSmsPrice();
+    }
+
+    public double getSmsPrice() {
+        return smsPrice++;
     }
 }
